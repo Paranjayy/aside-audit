@@ -18,7 +18,7 @@
       --text-dim: #707078;
       --text-bright: #eeeef0;
       --accent-red: #e04040;
-      --accent-red-dim: #a02828;
+      --accent-red-dim: #a02828;</html></head></title>
       --accent-yellow: #d4a020;
       --accent-yellow-dim: #8a6a18;
       --accent-green: #3a9a5c;
@@ -43,7 +43,6 @@
     a { color: var(--text-bright); text-decoration: underline; text-underline-offset: 3px; }
     a:hover { color: var(--accent-red); }
 
-    /* ─── HEADER ─── */
     header {
       padding: clamp(3rem, 8vw, 6rem) clamp(1.5rem, 5vw, 4rem) 2rem;
       max-width: 52rem;
@@ -93,7 +92,6 @@
       letter-spacing: 0.05em;
     }
 
-    /* ─── SUMMARY BAR ─── */
     .summary-bar {
       max-width: 52rem;
       margin: 0 auto;
@@ -132,7 +130,59 @@
     .summary-card.yellow .number { color: var(--accent-yellow); }
     .summary-card.green .number { color: var(--accent-green); }
 
-    /* ─── TIMELINE ─── */
+    .arch-section {
+      max-width: 52rem;
+      margin: 0 auto;
+      padding: 3rem clamp(1.5rem, 5vw, 4rem) 3rem;
+    }
+
+    .arch-section h3 {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--text-bright);
+      margin-bottom: 1rem;
+    }
+
+    .arch-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+    }
+
+    .arch-table th {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      text-align: left;
+      padding: 0.6rem 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .arch-table td {
+      padding: 0.7rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .arch-table td:first-child {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--text-bright);
+      white-space: nowrap;
+    }
+
+    .arch-table td:nth-child(2) {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--text-dim);
+    }
+
+    .arch-table td:last-child {
+      color: var(--text);
+    }
+
     .timeline {
       max-width: 52rem;
       margin: 0 auto;
@@ -159,10 +209,7 @@
     }
 
     @media (max-width: 600px) {
-      .entry {
-        grid-template-columns: 1fr;
-        gap: 0.5rem;
-      }
+      .entry { grid-template-columns: 1fr; gap: 0.5rem; }
     }
 
     .entry .date {
@@ -219,61 +266,6 @@
     .tag.low { color: var(--accent-green); border-color: var(--accent-green-dim); }
     .tag.info { color: var(--text-dim); border-color: var(--border); }
 
-    /* ─── ARCHITECTURE ─── */
-    .arch-section {
-      max-width: 52rem;
-      margin: 0 auto;
-      padding: 0 clamp(1.5rem, 5vw, 4rem) 3rem;
-    }
-
-    .arch-section h3 {
-      font-family: var(--serif);
-      font-size: 1.1rem;
-      color: var(--text-bright);
-      margin-bottom: 1rem;
-    }
-
-    .arch-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.82rem;
-    }
-
-    .arch-table th {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-dim);
-      text-align: left;
-      padding: 0.6rem 1rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .arch-table td {
-      padding: 0.7rem 1rem;
-      border-bottom: 1px solid var(--border);
-      vertical-align: top;
-    }
-
-    .arch-table td:first-child {
-      font-family: var(--mono);
-      font-size: 0.78rem;
-      color: var(--text-bright);
-      white-space: nowrap;
-    }
-
-    .arch-table td:nth-child(2) {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--text-dim);
-    }
-
-    .arch-table td:last-child {
-      color: var(--text);
-    }
-
-    /* ─── VERDICT ─── */
     .verdict {
       max-width: 52rem;
       margin: 0 auto;
@@ -309,7 +301,6 @@
       color: var(--text-dim);
     }
 
-    /* ─── FOOTER ─── */
     footer {
       max-width: 52rem;
       margin: 0 auto;
@@ -322,7 +313,6 @@
 
     footer .line { margin-bottom: 0.3rem; }
 
-    /* ─── SCROLLBAR ─── */
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: var(--border); }
@@ -331,57 +321,41 @@
 <body>
 
 <header>
-  <div class="eyebrow">security audit · j</body>uly 2026<</header>/div>
-  <h1</div>>everything that's <em>off</em> with Aside.</h1>
- </em> <p class="subtitle">A local filesystem audit of the Aside browser — the YC-backed Chromium fork that wants to be your AI</p>-powered daily driver. Two extensions, one native daemon, zero chill on permissions.</p>
+  <div class="eyebrow">security audit · july 2026</div>
+  <h1>everything that's <em>off</em> with Aside.</h1>
+  <p class="subtitle">A local filesystem audit of the Aside browser — the YC-backed Chromium fork that wants to be your AI-powered daily driver. Two extensions, one native daemon, zero chill on permissions.</p>
   <div class="meta">
-    <span>target: aside v1.26.721.1635</div></span</span>>
-    <span>base: chromium 145.0.7584.0</span</span>>
+    <span>target: aside v1.26.721.1635</span>
+    <span>base: chromium 145.0.7584.0</span>
     <span>platform: macos arm64</span>
   </div>
 </header>
 
 <div class="summary-bar">
   <div class="summary-card red">
-    <div class="number</span>">5</div>
-    <div class="label">High / Critical<</div></div></div>/div>
-  </div></div>
+    <div class="number">5</div>
+    <div class="label">High / Critical</div>
+  </div>
   <div class="summary-card yellow">
-    <div class="number">4</div></div>
+    <div class="number">4</div>
     <div class="label">Medium</div>
   </div>
-  </div><div class="summary-card green</div>">
+  <div class="summary-card green">
     <div class="number">4</div>
-    <div class="</div></div>label">Low / Info</div>
+    <div class="label">Low / Info</div>
   </div>
 </div>
 
-<section class="arch-section" style="padding-top: 3rem;">
-  <h3>Architecture<</div>/h3>
+<section class="arch-section">
+  <h3>Architecture</h3>
   <table class="arch-table">
-    <thead></section>
-      <tr>
-        <th></h3></table>Component</th></thead>
-        <</tr>th>Extension ID</th>
-        <th></th>What it does</th>
-      </tr</th>>
+    <thead>
+      <tr><th>Component</th><th>Extension ID</th><th>What it does</th></tr>
     </thead>
     <tbody>
-      <tr>
-        </tbody><td></tr>Aside Browsing Agent</td></td>
-        <td>fjdhphbdlfjogobdofoaagnlnko</td>ibdge</td>
-        <td>AI chat, tab management, agent browsing</td>
-      </tr>
-      <tr></td>
-        <td>Aside Password Manager</tr></td>
-        <td</td>>clcdgiameigmljcbkkcbjiljinmfkncl</td>
-        <td>Password vault, autofill, passkeys</td></td>
-      </tr>
-      <tr>
-        <td>Aside Daemon</td>
-        <td>Native app (mac-arm64)</td>
-        <td>Localhost bridge on port 21420</td>
-      </tr>
+      <tr><td>Aside Browsing Agent</td><td>fjdhphbdlfjogobdofoaagnlnkoibdge</td><td>AI chat, tab management, agent browsing</td></tr>
+      <tr><td>Aside Password Manager</td><td>clcdgiameigmljcbkkcbjiljinmfkncl</td><td>Password vault, autofill, passkeys</td></tr>
+      <tr><td>Aside Daemon</td><td>Native app (mac-arm64)</td><td>Localhost bridge on port 21420</td></tr>
     </tbody>
   </table>
 </section>
@@ -389,139 +363,129 @@
 <section class="timeline">
   <div class="timeline-label">findings</div>
 
-  <!-- CRITICAL 1 -->
-  <article class="</tr>entry"</td></td>>
+  <article class="entry">
     <div class="date">Jul 23, 2026</div>
     <div class="content">
       <span class="tag critical">critical</span>
       <h2>Recovery key entropy is sent to their server</h2>
-      <</td></section>p>The recovery key uses a standard BIP39 2048-word English wordlist — 12 words, 132 bits of entropy. Brute-force is infeasible (</div>2<sup>132</div></sup> ≈ 5.4 × 10<sup>39</sup>). But the code sends <</div></span>code>recoveryEntropyB64</code</h2></sup>> to Aside's backend. If their server is compromised, every recovery key is too.</p>
-      <div class="detail">recovery-CBf919w0.js → standard BIP39 wordlist (2048 words)<br>recovery key form</sup> → recoveryEntropyB64</div> sent via tRPC mutation<br>"account can't be recovered if pass lost" → single point of failure</div>
+      <p>The recovery key uses a standard BIP39 2048-word English wordlist — 12 words, 132 bits of entropy. Brute-force is infeasible. But the code sends recoveryEntropyB64 to Aside's backend. If their server is compromised, every recovery key is too.</p>
+      <div class="detail">recovery-CBf919w0.js → standard BIP39 wordlist (2048 words)<br>recovery key form → recoveryEntropyB64 sent via tRPC mutation<br>"account can't be recovered if pass lost" → single point of failure</div>
     </div>
   </article>
 
-  <!-- CRITICAL 2 -->
   <article class="entry">
     <div class="date">Jul 23, 2026</div>
-    <</article></div>div class="content">
+    <div class="content">
       <span class="tag critical">critical</span>
       <h2>Both extensions inject content scripts into every page — including file://</h2>
-      <p>Both the Agent Manager and Password Manager declare <</span></h2>code>&lt;all</p>_urls&gt;</code> host permissions and inject content scripts into <code>http://*/*</code>, <code>https://*/*</code></code>, and even <code>file:///*</code>. Any XSS in either extension becomes a full</code></code>-page compromise on every website you visit.</p>
-      <div class="detail">Password Manager manifest.json:</div><br>"matches": ["http://*/*", "https://*/*", "file:///*"]<br>"run_at": "document_start", "all_frames": true<br><br>Agent Manager manifest.json:<br>"matches": ["&lt;all_urls&gt;"]<br>"run_at": "document_idle"</div>
+      <p>Both the Agent Manager and Password Manager declare all_urls host permissions and inject content scripts into http://*/*, https://*/*, and even file:///*. Any XSS in either extension becomes a full-page compromise on every website you visit.</p>
+      <div class="detail">Password Manager manifest.json:<br>"matches": ["http://*/*", "https://*/*", "file:///*"]<br>"run_at": "document_start", "all_frames": true<br><br>Agent Manager manifest.json:<br>"matches": ["&lt;all_urls&gt;"]<br>"run_at": "document_idle"</div>
     </div>
   </article>
 
-  <!-- CRITICAL 3 -->
   <article class="entry">
     <div class="date">Jul 23, 2026</div>
     <div class="content">
       <span class="tag critical">critical</span>
       <h2>Agent Manager has near-total browser takeover permissions</h2>
-      <p>The Browsing Agent extension requests <code>debugger</code>, <</div></article>code>tabCapture</code>, <code>cookies</span></div></code>, <code>history</h2><</p>/code</code>>, <code>bookmarks</code></code></code>, <code>browsingData</code>, <code></code>nativeMessaging</code>, and <code>management</code>. Plus</code> a custom permission: <code</code>>capture-tab-without</code>-userinteraction</code>. This is giving a 5-person YC startup full access to everything you do in the browser.</p>
-      <div class="detail">permissions: [sidePanel, storage, activeTab, tabCapture, offscreen,<br>  debugger, downloads, favicon, history, bookmarks</div>, topSites,<br>  browsingData, privacy, management, nativeMessaging, cookies,<br>  tabs, sessions, tabGroups, alarms, notifications,<br>  at.studio.Aside.ext.private.capture-tab-without-userinteraction]</div>
+      <p>The Browsing Agent extension requests debugger, tabCapture, cookies, history, bookmarks, browsingData, nativeMessaging, and management. Plus a custom permission: capture-tab-without-userinteraction. This is giving a 5-person YC startup full access to everything you do in the browser.</p>
+      <div class="detail">permissions: [sidePanel, storage, activeTab, tabCapture, offscreen,<br>  debugger, downloads, favicon, history, bookmarks, topSites,<br>  browsingData, privacy, management, nativeMessaging, cookies,<br>  tabs, sessions, tabGroups, alarms, notifications,<br>  at.studio.Aside.ext.private.capture-tab-without-userinteraction]</div>
     </div>
   </article>
 
-  <!-- CRITICAL 4 -->
   <article class="entry">
-    <div class="date">Jul 23, 2026</div</article></div>>
+    <div class="date">Jul 23, 2026</div>
     <div class="content">
-      <span class="tag high">high</span</div>>
-      </span><h2>Password Manager exposes internal resources to all websites</h2</h2>>
-      <p><code>web_accessible_resources</code> includes <code>iframe.html<</p>/code>, <code>fido2-page-script.js</code>, <code>autofill-page-script.js</code></code></code> — all exposed to</code></code> <code>&lt;all_urls&gt</code>;</code>. Any website can load these resources for fingerprinting or potential exploitation.</p>
-      <div class="detail">"web_accessible_resources"</div>: [{<br>  "resources": ["iframe.html", "icons/icon48.png", "assets/*",<br>    "fido2-page-script.js", "autofill-page-script.js"],<br>  "matches": ["&lt;all_urls&gt;"]<br>}]</div>
+      <span class="tag high">high</span>
+      <h2>Password Manager exposes internal resources to all websites</h2>
+      <p>web_accessible_resources includes iframe.html, fido2-page-script.js, autofill-page-script.js — all exposed to all_urls. Any website can load these resources for fingerprinting or potential exploitation.</p>
+      <div class="detail">"web_accessible_resources": [{<br>  "resources": ["iframe.html", "icons/icon48.png", "assets/*",<br>    "fido2-page-script.js", "autofill-page-script.js"],<br>  "matches": ["&lt;all_urls&gt;"]<br>}]</div>
     </div>
   </article>
 
-  <!-- CRITICAL 5 -->
   <article class="entry">
-    <div class="date">Jul 23, 2</article>026</div>
+    <div class="date">Jul 23, 2026</div>
     <div class="content">
-      <span class="tag high">high<</div>/span>
-      </div><h2>Daemon auth token is empty — localhost port wide</span> open</h2>
-      <p>The Aside Daemon runs</h2> on <code>localhost:21420</code> (production) or <</p></code>code>localhost:21421</code> (dev). Both bundled extensions contain <code>VITE_ASIDE_DAEMON_AUTH_TOKEN: ""</code>. Any local process that can connect to this port can interact with the daemon without authentication.</p>
-      <div class="detail">var Xd =</code> "http://1</div>27.0.0.1:21420";<br>VITE_ASIDE_DAEMON_AUTH_TOKEN: ""<br>VITE_DEPLOYMENT_ENVIRONMENT: "extension"</div>
+      <span class="tag high">high</span>
+      <h2>Daemon auth token is empty — localhost port wide open</h2>
+      <p>The Aside Daemon runs on localhost:21420 (production) or localhost:21421 (dev). Both bundled extensions contain VITE_ASIDE_DAEMON_AUTH_TOKEN: "". Any local process that can connect to this port can interact with the daemon without authentication.</p>
+      <div class="detail">var Xd = "http://127.0.0.1:21420";<br>VITE_ASIDE_DAEMON_AUTH_TOKEN: ""<br>VITE_DEPLOYMENT_ENVIRONMENT: "extension"</div>
     </div>
   </article>
 
-  <!-- MEDIUM 1 -->
   <article class="entry">
-    <div class=</article>"date">Jul 23, 2026</div>
+    <div class="date">Jul 23, 2026</div>
     <div class="content">
       <span class="tag medium">medium</span>
       <h2>PostHog analytics bundled in a password manager</h2>
-      <p</div>></span>Both extensions initialize</h2> PostHog telemetry (<code>_posthogChunkIds</code>). For a product that handles passwords</code>, credit cards, and passkeys, shipping usage analytics to a third party is a red flag. Check what events are tracked.</p>
-      <div class="detail">!function(){try{var e=</div>...n=(new e.Error).stack;<br>n&&(e._posthogChunkIds=e._posthogChunkIds||{},<br>e._posthogChunkIds[n]="019f839b-...")}catch(e){}}();</div>
+      <p>Both extensions initialize PostHog telemetry. For a product that handles passwords, credit cards, and passkeys, shipping usage analytics to a third party is a red flag. Check what events are tracked.</p>
+      <div class="detail">!function(){try{var e=...n=(new e.Error).stack;<br>n&&(e._posthogChunkIds=e._posthogChunkIds||{},<br>e._posthogChunkIds[n]="019f839b-...")}catch(e){}}();</div>
     </div>
   </article>
 
-  <!-- MEDIUM 2 -->
   <article class="entry">
-    <div class="date">Jul 23, 2026</div></article></div>
+    <div class="date">Jul 23, 2026</div>
     <div class="content">
       <span class="tag medium">medium</span>
-      <h2>Passwords stored in Chromium's Login Data SQLite DB</h2></div></span>
-      <p</h2>>Actual passwords exist in <code>Default/Login Data</code> (126KB, non-empty). On macOS these</code> are AES-encrypted by Chromium's Keychain integration, but the DB file is still accessible to any process with file access. The <code>password_hash_data_list</code> in Local State is empty — Aside's password manager</code> doesn't use Chrome's built-in protection layer.</p>
-      <div class="detail">Default/Login Data: 126,976 bytes<br>Profile</div> 1/Login Data: 40,960 bytes<br>password_hash_data_list: [] (empty)</div>
+      <h2>Passwords stored in Chromium's Login Data SQLite DB</h2>
+      <p>Actual passwords exist in Default/Login Data (126KB, non-empty). On macOS these are AES-encrypted by Chromium's Keychain integration, but the DB file is still accessible to any process with file access. The password_hash_data_list in Local State is empty.</p>
+      <div class="detail">Default/Login Data: 126,976 bytes<br>Profile 1/Login Data: 40,960 bytes<br>password_hash_data_list: [] (empty)</div>
     </div>
   </article>
 
-  <!-- MEDIUM 3 -->
   <article class="entry">
-    <div class="date">Jul 23, 2</article>026</div>
-    </div><div class="content">
-      <span class="tag medium">medium</span</div>>
+    <div class="date">Jul 23, 2026</div>
+    <div class="content">
+      <span class="tag medium">medium</span>
       <h2>Extension source code zipped in Application Support</h2>
-      <p><code>aside agentmanager &</span> pass.zip</code> (12MB</h2>) sits in the app data folder with</p></code> full extension JavaScript source. Any local process can read it. The extensions are "hidden" from <code>chrome://extensions</code>, but their complete source is on disk in plain JS.</p>
-      <</code>div class="detail">aside agentmanager & pass.zip: 12,162,251 bytes<br>aside agentmanager & pass/AsideAgentManager copy/1.26.721.1635/<br>aside agentmanager & pass/AsidePasswordManager copy/1.26.721.1635/</div>
+      <p>aside agentmanager &amp; pass.zip (12MB) sits in the app data folder with full extension JavaScript source. Any local process can read it. The extensions are hidden from chrome://extensions, but their complete source is on disk in plain JS.</p>
+      <div class="detail">aside agentmanager &amp; pass.zip: 12,162,251 bytes<br>AsideAgentManager copy/1.26.721.1635/<br>AsidePasswordManager copy/1.26.721.1635/</div>
     </div>
   </article>
 
-  <!-- MEDIUM 4 -->
   <article class="entry">
-    <div class="date">Jul 23</article>, 2026</div>
-    </div><div class="content">
-      <span class="tag medium"></div>medium</span>
-      <h2>Autofill overlay uses max z-index (2147</span>483647)</h2></h2>
-      <p>The password manager's autofill overlay uses <code></p></code>z-index: 2147483647</code> — the maximum 32-bit signed integer. While not exploitable on its own, it's a pattern that could enable UI overlay attacks if positioning isn't carefully controlled.</p>
-      <div class="detail">position: fixed; z-index: 2</div>147483647;<br>pointer-events: ${t ? "auto" : "none"};</div>
-    </div>
-  </article>
-
-  <!-- LOW / INFO -->
-  <article class="entry">
-    <div class="date">Jul 23, 2026</article></div>
+    <div class="date">Jul 23, 2026</div>
     <div class="content">
-      </div><span class="tag low">low</div></span>
-      <h2>Recovery key file deleted from disk</span></h2>
-      <p>The file <code>aside-recovery-key-2026-07</h2></p>-22.txt</code> doesn't exist at</code> the expected path. Good — recovery keys shouldn't persist on disk after being noted down.</p>
+      <span class="tag medium">medium</span>
+      <h2>Autofill overlay uses max z-index (2147483647)</h2>
+      <p>The password manager's autofill overlay uses z-index: 2147483647 — the maximum 32-bit signed integer. While not exploitable on its own, it's a pattern that could enable UI overlay attacks if positioning isn't carefully controlled.</p>
+      <div class="detail">position: fixed; z-index: 2147483647;<br>pointer-events: ${t ? "auto" : "none"};</div>
     </div>
   </article>
 
   <article class="entry">
-    <div class="date">Jul 2</article>3, 2026</div>
+    <div class="date">Jul 23, 2026</div>
     <div class="content">
-      </div><span class="tag low">low</span>
-      <h2>C</div></span>ross-extension messaging via externally_connectable</h2>
-      <p>Both extensions declare </h2><code>externally_connectable</code> allowing messages between</p> them. Expected</code> for their integration, but the extension IDs are public (in the filesystem and manifests), so any malicious extension could theoretically message them.</p>
+      <span class="tag low">low</span>
+      <h2>Recovery key file deleted from disk</h2>
+      <p>The file aside-recovery-key-2026-07-22.txt doesn't exist at the expected path. Good — recovery keys shouldn't persist on disk after being noted down.</p>
     </div>
   </article>
 
   <article class="entry">
-    <div class="</article>date">Jul 23, 2026</div>
+    <div class="date">Jul 23, 2026</div>
     <div class="content">
-      <span class="tag info">info<</div></div>/span>
-      </span><h2>Daemon auto-updates components from Aside's servers</h2>
-      </h2><p>The component update log shows the daemon auto-updates itself</p> and the extensions. This is a supply chain consideration — if Aside's update infrastructure is compromised, malicious code could be distributed through the update mechanism.</p>
+      <span class="tag low">low</span>
+      <h2>Cross-extension messaging via externally_connectable</h2>
+      <p>Both extensions declare externally_connectable allowing messages between them. Expected for their integration, but the extension IDs are public (in the filesystem and manifests), so any malicious extension could theoretically message them.</p>
     </div>
   </article>
 
   <article class="entry">
-    <div class=</article>"date">Jul 23, 2026</div>
+    <div class="date">Jul 23, 2026</div>
     <div class="content">
       <span class="tag info">info</span>
-      </div><h2>Standard Chromium profile structure</span></h2>
-      <p>Aside uses standard Chromium profile directories (<code></h2>Default</code>, <code>Profile</p> 1</code>) with standard files</code> (Cookies, Login</code> Data, Web Data). Standard Chromium forensics tools can extract data from these.</p>
+      <h2>Daemon auto-updates components from Aside's servers</h2>
+      <p>The component update log shows the daemon auto-updates itself and the extensions. This is a supply chain consideration — if Aside's update infrastructure is compromised, malicious code could be distributed through the update mechanism.</p>
+    </div>
+  </article>
+
+  <article class="entry">
+    <div class="date">Jul 23, 2026</div>
+    <div class="content">
+      <span class="tag info">info</span>
+      <h2>Standard Chromium profile structure</h2>
+      <p>Aside uses standard Chromium profile directories (Default, Profile 1) with standard files (Cookies, Login Data, Web Data). Standard Chromium forensics tools can extract data from these.</p>
     </div>
   </article>
 
@@ -529,17 +493,17 @@
 
 <section class="verdict">
   <h2>The verdict</h2>
-  <p><strong>Your</section></h2> instinct about "vibe coded" is somewhat validated.</p></strong></strong> The permission model is extremely aggressive for what is essentially a 5-person YC startup. The daemon having no apparent auth token, content scripts running on <code>file://</code>/*</code>, and PostHog in a password manager are all red flags for a security-conscious product.</p>
-  <p>The recovery key entropy is</p> fine (132 bits) — brute-force is not the attack vector. The real trust boundary is that <strong>Aside's server</strong> holds the recovery entropy</strong>. If their backend is compromised, your recovery key is compromised.</p>
-  <p>The most actionable findings for a security researcher: the</p> empty daemon auth token (#5), the web_accessible_resources exposure (#4), and the tabCapture-without-consent permission (#3). Those are concrete, demonstrable issues.</p>
-  <p class="closing">Could Aside work</p> as a browser extension in other browsers? Technically yes — the password manager and agent could be standalone extensions with narrower permissions. But the current architecture is designed around having full Chromium fork control. Packaging this as an extension would force them to confront how much of their "product" is actually just aggressive permissions that a normal browser wouldn't grant.</p>
+  <p><strong>Your instinct about "vibe coded" is somewhat validated.</strong> The permission model is extremely aggressive for what is essentially a 5-person YC startup. The daemon having no apparent auth token, content scripts running on file:///*, and PostHog in a password manager are all red flags for a security-conscious product.</p>
+  <p>The recovery key entropy is fine (132 bits) — brute-force is not the attack vector. The real trust boundary is that <strong>Aside's server holds the recovery entropy</strong>. If their backend is compromised, your recovery key is compromised.</p>
+  <p>The most actionable findings for a security researcher: the empty daemon auth token (#5), the web_accessible_resources exposure (#4), and the tabCapture-without-consent permission (#3). Those are concrete, demonstrable issues.</p>
+  <p class="closing">Could Aside work as a browser extension in other browsers? Technically yes — the password manager and agent could be standalone extensions with narrower permissions. But the current architecture is designed around having full Chromium fork control. Packaging this as an extension would force them to confront how much of their "product" is actually just aggressive permissions that a normal browser wouldn't grant.</p>
 </section>
 
 <footer>
-  <div class="line">audit</footer> performed</div> on a local install · july 23, 2026</div>
-  <div class="line">aside v1.26.721</div>.1635 · chromium 145.0.7584.0 · macos arm64</div>
-  <div class="line">findings based</div> on filesystem inspection and static code analysis</div>
-  <div class="line">not affiliated with aside · not affiliated</div> with anthropic</div>
+  <div class="line">audit performed on a local install · july 23, 2026</div>
+  <div class="line">aside v1.26.721.1635 · chromium 145.0.7584.0 · macos arm64</div>
+  <div class="line">findings based on filesystem inspection and static code analysis</div>
+  <div class="line">not affiliated with aside · not affiliated with anthropic</div>
 </footer>
 
 </body>

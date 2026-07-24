@@ -323,7 +323,7 @@
 <header>
   <div class="eyebrow">security audit · july 2026</div>
   <h1>everything that's <em>off</em> with Aside.</h1>
-  <p class="subtitle">A local filesystem audit of the Aside browser — the YC-backed Chromium fork that wants to be your AI-powered daily driver. Two extensions, one native daemon, zero chill on permissions.</p>
+  <p class="subtitle">A local filesystem audit of the Aside browser — the YC-backed AI agent Chromium fork that acts on your behalf across the web.</p>
   <div class="meta">
     <span>target: aside v1.26.721.1635</span>
     <span>base: chromium 145.0.7584.0</span>
@@ -333,7 +333,7 @@
 
 <div class="summary-bar">
   <div class="summary-card red">
-    <div class="number">5</div>
+    <div class="number">3</div>
     <div class="label">High / Critical</div>
   </div>
   <div class="summary-card yellow">
@@ -341,7 +341,7 @@
     <div class="label">Medium</div>
   </div>
   <div class="summary-card green">
-    <div class="number">4</div>
+    <div class="number">6</div>
     <div class="label">Low / Info</div>
   </div>
 </div>
@@ -376,20 +376,20 @@
   <article class="entry">
     <div class="date">Jul 23, 2026</div>
     <div class="content">
-      <span class="tag critical">critical</span>
-      <h2>Both extensions inject content scripts into every page — including file://</h2>
-      <p>Both the Agent Manager and Password Manager declare all_urls host permissions and inject content scripts into http://*/*, https://*/*, and even file:///*. Any XSS in either extension becomes a full-page compromise on every website you visit.</p>
-      <div class="detail">Password Manager manifest.json:<br>"matches": ["http://*/*", "https://*/*", "file:///*"]<br>"run_at": "document_start", "all_frames": true<br><br>Agent Manager manifest.json:<br>"matches": ["&lt;all_urls&gt;"]<br>"run_at": "document_idle"</div>
+      <span class="tag info">info · expected for AI agent browser</span>
+      <h2>Both extensions inject content scripts into every page</h2>
+      <p>The Agent Manager and Password Manager declare all_urls host permissions and inject content scripts into http://*/* and https://*/*. This is expected for an AI agent browser — the agent needs page access to read, interact, and act on the user's behalf. Comet, Dia, and ChatGPT Atlas all request similar broad page access.</p>
+      <div class="detail"><strong>Expected:</strong> all_urls content scripts for agent functionality<br><br><strong>Concern:</strong> file:///* in Password Manager matches is unnecessary<br>  "matches": ["http://*/*", "https://*/*", "file:///*"]<br>  file:// access extends the attack surface without clear justification</div>
     </div>
   </article>
 
   <article class="entry">
     <div class="date">Jul 23, 2026</div>
     <div class="content">
-      <span class="tag critical">critical</span>
-      <h2>Agent Manager has near-total browser takeover permissions</h2>
-      <p>The Browsing Agent extension requests debugger, tabCapture, cookies, history, bookmarks, browsingData, nativeMessaging, and management. Plus a custom permission: capture-tab-without-userinteraction. This is giving a 5-person YC startup full access to everything you do in the browser.</p>
-      <div class="detail">permissions: [sidePanel, storage, activeTab, tabCapture, offscreen,<br>  debugger, downloads, favicon, history, bookmarks, topSites,<br>  browsingData, privacy, management, nativeMessaging, cookies,<br>  tabs, sessions, tabGroups, alarms, notifications,<br>  at.studio.Aside.ext.private.capture-tab-without-userinteraction]</div>
+      <span class="tag info">info · expected for AI agent browser</span>
+      <h2>Agent Manager has broad browser permissions</h2>
+      <p>The Browsing Agent extension requests debugger, tabCapture, cookies, history, bookmarks, browsingData, nativeMessaging, and management. These are standard for AI agent browsers — Comet, Dia, and ChatGPT Atlas all request similar access to enable autonomous browsing on behalf of the user.</p>
+      <div class="detail"><strong>Expected for AI agent browsers:</strong> debugger, tabCapture, cookies, history, bookmarks, browsingData, nativeMessaging<br><br><strong>Concern (medium):</strong> capture-tab-without-userinteraction — a custom permission that captures tab content without explicit user interaction. Other AI browsers handle consent more transparently.<br><br>permissions: [sidePanel, storage, activeTab, tabCapture, offscreen,<br>  debugger, downloads, favicon, history, bookmarks, topSites,<br>  browsingData, privacy, management, nativeMessaging, cookies,<br>  tabs, sessions, tabGroups, alarms, notifications,<br>  at.studio.Aside.ext.private.capture-tab-without-userinteraction]</div>
     </div>
   </article>
 
@@ -493,10 +493,10 @@
 
 <section class="verdict">
   <h2>The verdict</h2>
-  <p><strong>Your instinct about "vibe coded" is somewhat validated.</strong> The permission model is extremely aggressive for what is essentially a 5-person YC startup. The daemon having no apparent auth token, content scripts running on file:///*, and PostHog in a password manager are all red flags for a security-conscious product.</p>
+  <p><strong>For an AI agent browser, the permission model is expected.</strong> Comet, Dia, and ChatGPT Atlas all request similar access — broad page injection, tab control, and native messaging are table stakes for an AI that acts on your behalf. The real concerns are implementation choices, not the permission model itself.</p>
   <p>The recovery key entropy is fine (132 bits) — brute-force is not the attack vector. The real trust boundary is that <strong>Aside's server holds the recovery entropy</strong>. If their backend is compromised, your recovery key is compromised.</p>
-  <p>The most actionable findings for a security researcher: the empty daemon auth token (#5), the web_accessible_resources exposure (#4), and the tabCapture-without-consent permission (#3). Those are concrete, demonstrable issues.</p>
-  <p class="closing">Could Aside work as a browser extension in other browsers? Technically yes — the password manager and agent could be standalone extensions with narrower permissions. But the current architecture is designed around having full Chromium fork control. Packaging this as an extension would force them to confront how much of their "product" is actually just aggressive permissions that a normal browser wouldn't grant.</p>
+  <p>The most actionable findings for a security researcher: the empty daemon auth token (#5), the web_accessible_resources exposure (#4), and the capture-tab-without-consent permission (#3). Those are concrete, demonstrable issues that exist regardless of AI agent context.</p>
+  <p class="closing">Could Aside work as a browser extension in other browsers? For an AI agent browser, the Chromium fork approach makes sense — the agent needs deep browser integration that extensions can't provide. But the daemon having no auth token and the server holding recovery entropy are still concerning implementation choices that don't follow from the architecture.</p>
 </section>
 
 <footer>
